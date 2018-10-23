@@ -1,0 +1,17 @@
+Users:
+  -
+    username: alice
+    displayName: Alice Alisson
+    countryCode: NLD
+  -
+    username: bob
+    displayName: Bob Bobson
+    countryCode: FRA
+
+Countries:
+  -
+    code: NLD
+    displayName: Netherlands
+  -
+    code: FRA
+    displayName: France

@@ -1,0 +1,31 @@
+---
+tables:
+  Users:
+    type: array
+    columns:
+      username:
+        description: Unique username of the user
+        type: integer
+      displayName:
+        description: Human readable name
+        type: integer
+      countryCode:
+        description: Country code
+        type: string
+
+    references:
+      country:
+        local: countryCode
+        remote: Countries.code
+        reverse: users
+
+  Countries:
+    type: array
+    columns:
+      code:
+        description: Unique country code (ISO 3166-1 alpha-3)
+        type: string
+        unique: true
+      displayName:
+        description: English display name of the country
+        type: string
