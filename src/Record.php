@@ -52,4 +52,13 @@ class Record implements ArrayAccess
         return $this->offsetGet($key);
     }
 
+    public function __call($name, $arguments)
+    {
+        // Magic getters
+        if (substr($name,0,3)=='get') {
+            $name = lcfirst(substr($name, 3));
+            return $this->offsetGet($name);
+        }
+    }
+
 }
