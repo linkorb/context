@@ -19,7 +19,7 @@ class ReferenceColumn extends AbstractColumn implements ColumnInterface
     public function resolve($record, $columnName)
     {
         $value = $record->getRaw($this->localColumnName);
-        echo "Value of " . $this->localColumnName . ": [$value]\n";
+        //echo "Value of " . $this->localColumnName . ": [$value]\n";
         $recordSet = $this->remoteTable->getRecordSet();
         $records = $recordSet->findWhere([$this->remoteColumnName => $value]);
         return $records[0];
