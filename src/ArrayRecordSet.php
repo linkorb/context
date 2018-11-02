@@ -4,7 +4,7 @@ namespace Context;
 
 class ArrayRecordSet implements RecordSetInterface
 {
-    protected $records;
+    protected $records = [];
     protected $table;
 
     public function __construct(Table $table)
@@ -19,6 +19,16 @@ class ArrayRecordSet implements RecordSetInterface
             $this->records[] = $record;
         }
     }
+
+    public function findAll()
+    {
+        $res = [];
+        foreach ($this->records as $record) {
+            $res[] = $record;
+        }
+        return $res;
+    }
+
 
     public function findWhere(array $filters)
     {
