@@ -25,7 +25,7 @@ class Record implements ArrayAccess
 
     public function offsetExists($offset)
     {
-        return isset($this->data[$offset]);
+        return $this->table->hasColumn($offset);
     }
 
     public function offsetGet($offset)
