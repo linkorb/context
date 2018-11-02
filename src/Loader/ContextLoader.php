@@ -34,7 +34,7 @@ class ContextLoader
 
         // Second pass: load references
         foreach ($schema['tables'] as $tableName => $tableData) {
-            $table = $context->getTableByName($tableName);
+            $table = $context->getTable($tableName);
             if (isset($tableData['references'])) {
                 foreach ($tableData['references'] as $referenceName => $referenceData) {
                     $localColumnName = $referenceData['local'];
@@ -42,7 +42,7 @@ class ContextLoader
                     $reverse = $referenceData['reverse'] ?? null;
                     $remotePart = explode('.', $remote);
 
-                    $remoteTable = $context->getTableByName($remotePart[0]);
+                    $remoteTable = $context->getTable($remotePart[0]);
                     $remoteColumnName = $remotePart[1];
 
                     $reference = new ReferenceColumn(
@@ -74,7 +74,7 @@ class ContextLoader
 
 
         foreach ($schema['tables'] as $tableName => $tableData) {
-            $table = $context->getTableByName($tableName);
+            $table = $context->getTable($tableName);
             $recordSet = new ArrayRecordSet($table, []);
             $table->setRecordSet($recordSet);
         }
