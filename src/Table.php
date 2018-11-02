@@ -37,6 +37,11 @@ class Table
         return $this->columns[$name];
     }
 
+    public function hasColumn($name)
+    {
+        return isset($this->columns[$name]);
+    }
+
     public function getColumns()
     {
         return $this->columns;
