@@ -3,6 +3,7 @@
 namespace Context\Column;
 
 use Context\Table;
+use RuntimeException;
 
 class ReferenceColumn extends AbstractColumn implements ColumnInterface
 {
@@ -22,6 +23,13 @@ class ReferenceColumn extends AbstractColumn implements ColumnInterface
         //echo "Value of " . $this->localColumnName . ": [$value]\n";
         $recordSet = $this->remoteTable->getRecordSet();
         $records = $recordSet->findWhere([$this->remoteColumnName => $value]);
+        if (count($records)>1) {
+            throw new RuntimeException("Multiple records found. " . $this->remoteTable->getName() . '.' . $this->remoteColumnName . ' is not unique for ' . $value);
+        }
+        if (count($records)==0) {
+            return null;
+            // throw new RuntimeException("No records found. " . $this->remoteTable->getName() . '.' . $this->remoteColumnName . ' with value "' . $value . '"');
+        }
         return $records[0];
     }
 
