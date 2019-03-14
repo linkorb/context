@@ -1,7 +1,6 @@
 ---
 tables:
   Users:
-    type: array
     columns:
       username:
         description: Unique username of the user
@@ -20,7 +19,6 @@ tables:
         reverse: users
 
   Countries:
-    type: array
     columns:
       code:
         description: Unique country code (ISO 3166-1 alpha-3)
