@@ -1,6 +1,8 @@
 Context
 =======
 
+> NOTE: This Context library is now deprecated in favor of the new [Sage](https://github.com/linkorb/sage) library
+
 Context is a library + toolkit to manipulate extractions of larger databases for conversion, transformation and presentation.
 
 ## Definitions
